@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于世界杯 · 杂志专题</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9d7 0%, #f5d6b3 50%, #efcba0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.7;
+            color: #2e231c;
+        }
+        .magazine {
+            max-width: 820px;
+            width: 100%;
+            background: rgba(255, 250, 240, 0.88);
+            backdrop-filter: blur(2px);
+            border-radius: 40px 40px 30px 30px;
+            box-shadow: 0 18px 30px -10px rgba(110, 70, 40, 0.2), 0 6px 14px rgba(0,0,0,0.04);
+            padding: 2.4rem 2.2rem 2.8rem;
+            transition: all 0.25s ease;
+        }
+        /* hero 横幅区域 */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.8rem;
+            padding: 0.6rem 0 1.6rem;
+            border-bottom: 2px dashed rgba(190, 135, 90, 0.35);
+        }
+        .hero h1 {
+            font-size: 3.4rem;
+            letter-spacing: 2px;
+            font-weight: 450;
+            background: linear-gradient(135deg, #9f6e4a, #7a543a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.4rem;
+            text-shadow: 0 1px 2px rgba(255,215,170,0.3);
+        }
+        .hero .subhead {
+            font-size: 1rem;
+            color: #7a5f49;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-top: 0.2rem;
+            font-weight: 350;
+        }
+        .hero .subhead span {
+            display: inline-block;
+            background: #dbb594;
+            width: 28px;
+            height: 2px;
+            vertical-align: middle;
+            margin: 0 12px;
+        }
+        /* 背景说明段落（杂志卷首语） */
+        .intro-bg {
+            background: rgba(235, 215, 192, 0.35);
+            border-radius: 28px;
+            padding: 1.6rem 1.8rem;
+            margin-bottom: 2.2rem;
+            border-left: 5px solid #b8825f;
+            font-size: 1.05rem;
+            color: #3f2e22;
+        }
+        .intro-bg p {
+            margin-bottom: 0.5rem;
+        }
+        .intro-bg p:last-child {
+            margin-bottom: 0;
+        }
+        /* 三段式自然介绍卡片 */
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+        .feature-item {
+            background: #fffaf2;
+            border-radius: 26px;
+            padding: 1.5rem 1.8rem;
+            box-shadow: 0 8px 14px -8px rgba(100, 65, 40, 0.10);
+            transition: 0.2s;
+            border: 1px solid #f0ded0;
+        }
+        .feature-item h3 {
+            font-size: 1.25rem;
+            font-weight: 450;
+            color: #6b4d38;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .feature-item h3:before {
+            content: "◆";
+            font-size: 0.9rem;
+            color: #c2926c;
+            opacity: 0.7;
+        }
+        .feature-item p {
+            color: #3d322a;
+            margin-bottom: 0.6rem;
+            font-size: 0.98rem;
+        }
+        .feature-item p:last-child {
+            margin-bottom: 0;
+        }
+        .feature-item .inset-link {
+            display: inline-block;
+            background: #e3cdb9;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #3a2a1d;
+            text-decoration: none;
+            transition: background 0.2s, box-shadow 0.2s;
+            margin-top: 0.4rem;
+            border: 1px solid rgba(170, 125, 85, 0.2);
+        }
+        .feature-item .inset-link:hover {
+            background: #d4b79b;
+            box-shadow: 0 3px 8px rgba(120, 75, 40, 0.12);
+        }
+        /* 页尾访问提示 */
+        .footer-note {
+            margin-top: 2rem;
+            text-align: center;
+            border-top: 1px solid #dfcabc;
+            padding-top: 2rem;
+            font-size: 0.98rem;
+            color: #4d3b2e;
+        }
+        .footer-note p {
+            margin-bottom: 0.75rem;
+        }
+        .footer-note .small-faq {
+            background: #efe4da;
+            border-radius: 100px;
+            padding: 0.3rem 1.6rem;
+            display: inline-block;
+            font-size: 0.9rem;
+            color: #3d2f26;
+            margin-top: 0.2rem;
+        }
+        .footer-note .small-faq span {
+            font-weight: 450;
+        }
+        .footer-note a {
+            color: #5b3d2b;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px dashed #b88f73;
+            transition: 0.15s;
+        }
+        .footer-note a:hover {
+            border-bottom-style: solid;
+            color: #2b1c14;
+        }
+        /* 响应式 */
+        @media (max-width: 580px) {
+            .magazine { padding: 1.6rem 1.2rem; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero .subhead { font-size: 0.8rem; }
+            .intro-bg { padding: 1rem 1.2rem; }
+            .feature-item { padding: 1.2rem 1.2rem; }
+        }
+        .fine-print {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: #7c695a;
+            opacity: 0.5;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <!-- 首页横幅 hero -->
+        <div class="hero">
+            <h1>再访 · 世界杯</h1>
+            <div class="subhead">收藏，并持续关注<span></span>杂志专题</div>
+        </div>
+
+        <!-- 背景说明：卷首语/再次访问的契机 -->
+        <div class="intro-bg">
+            <p>有些赛事值得反复回来。在变幻的赛历与记忆之间，<a href="https://cnwebs-wc2026cn.com" style="color:#6b4a33; text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px;">世界杯</a>始终是一个坐标——它不只在赛季里被谈论，也存在于日常的注视中。</p>
+            <p>这个页面是一份安静的索引：提醒自己曾经收藏的页面，也预留一个回访的理由。背景里绵延的暖色，就像旧杂志翻开时泛黄的纸页，不喧哗，但亲切。</p>
+        </div>
+
+        <!-- 三段自然介绍：从收藏、持续关注、再次访问的角度 -->
+        <div class="features">
+            <div class="feature-item">
+                <h3>把页面留在身边</h3>
+                <p>浏览器书签栏里存着许多页面，其中一些会反复打开。<strong>世界杯</strong>相关的信息源尤其如此：赛程、记录、专题报道，常看常新。书签是一种安静的收藏，不必每次重新搜索，省下时间留给更专注的阅读。</p>
+                <p>如果你也曾把某个页面加入收藏夹，隔段时间再点开，会发现界面变了，内容也多了新的层次。收藏不是终点，而是下次访问的起点。</p>
+                <a href="https://cnwebs-wc2026cn.com" class="inset-link">世界杯</a>
+            </div>
+            <div class="feature-item">
+                <h3>持续关注，不必时刻</h3>
+                <p>关注一个赛事，不等于每天刷新。更自然的节奏是：偶尔想起时，打开收藏夹里那个熟悉的链接，看看有什么更新。页面保持稳定，内容却在生长，这种「非打扰式的陪伴」恰好符合许多人的习惯。</p>
+                <p>我们往往高估了即时信息的必要性，却低估了反复访问带来的熟悉感。<strong>世界杯</strong>的页面，值得在浏览器里拥有一个固定位置。</p>
+                <!-- 链接自然嵌入句中，不用按钮样式，用句子内链接 -->
+                <p>比如，你可以直接把 <a href="https://cnwebs-wc2026cn.com" style="color:#634b39; font-weight:500; text-decoration:underline 1px wavy #b47b5b; text-underline-offset:4px;">世界杯</a> 放在书签栏的常用文件夹里，下次想看的时候，一眼就能找到。</p>
+            </div>
+            <div class="feature-item">
+                <h3>再次访问的理由</h3>
+                <p>页面不会主动提醒你回来，但某些瞬间你会想起它：新一届预选赛抽签、经典比赛的回顾、或者只是某个安静的午后想读点熟悉的文字。再次访问不需要特别的理由，习惯本身就是最好的邀请。</p>
+                <p>收藏一个页面，就像在书里夹一片枫叶。下次翻开时，季节可能已经流转，但标记还在。这也是为什么我们倾向于保留那些干净、克制的页面——它们经得起反复看。</p>
+                <p style="margin-top:0.6rem;">→ <a href="https://cnwebs-wc2026cn.com" style="background:#dcc3b0; padding:0.1rem 1.2rem; border-radius:40px; color:#3b2b1f; text-decoration:none; font-size:0.95rem;">世界杯</a></p>
+            </div>
+        </div>
+
+        <!-- 页尾访问提示 + 轻量FAQ摘要 -->
+        <div class="footer-note">
+            <p>你可以在任何时候重新打开这个页面。收藏夹里的链接不会消失，除非你主动整理。</p>
+            <p>如果需要直接前往信息汇集处，这里有一个指向 <a href="https://cnwebs-wc2026cn.com">世界杯</a> 的链接 —— 它一直在那，安静、稳定。</p>
+            <div class="small-faq">
+                <span>❄ 常见备忘</span> 页面内容不定期微调 · 可右键收藏此页 · 无需注册即可浏览
+            </div>
+            <div class="fine-print">杂志专题 · 返回与停留同样重要</div>
+        </div>
+    </div>
+</body>
+</html>
