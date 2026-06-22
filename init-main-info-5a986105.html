@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 日常对照与延伸阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background-color: #f5f5f7;
+        }
+
+        /* hero 深色头图 */
+        .hero {
+            background: linear-gradient(135deg, #0b1a2e 0%, #1f3b4e 100%);
+            color: #e8ecf1;
+            padding: 4.5rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: #c2975a;
+            opacity: 0.7;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #cbd5e0;
+            font-weight: 300;
+        }
+
+        /* 主要内容区 — 浅色正文 */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem 3rem;
+        }
+
+        /* 卡片风格的优势区 */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+        .feature-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.4rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .feature-card:hover {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+            transform: translateY(-3px);
+        }
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #0b2b3c;
+        }
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        /* 说明区 —— 自然叙述段落 */
+        .explain-section {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+        }
+        .explain-section h2 {
+            font-size: 1.8rem;
+            font-weight: 450;
+            margin-bottom: 1.2rem;
+            color: #0a2838;
+            border-left: 4px solid #c2975a;
+            padding-left: 1rem;
+        }
+        .explain-section p {
+            margin-bottom: 1rem;
+            color: #2c2c2e;
+        }
+        .explain-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #b8863e;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        a:hover {
+            color: #9a6f2e;
+            border-bottom-color: #c2975a;
+        }
+
+        /* FAQ 摘要卡片 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem 1.8rem;
+            margin: 2.5rem 0;
+        }
+        .faq-summary h2 {
+            font-size: 1.8rem;
+            font-weight: 450;
+            margin-bottom: 1.2rem;
+            color: #0a2838;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e5e5ea;
+            padding: 0.9rem 0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.2rem;
+            color: #1c1c1e;
+        }
+        .faq-answer {
+            font-size: 0.95rem;
+            color: #515154;
+            line-height: 1.5;
+        }
+
+        /* 底部链接区 */
+        .footer-links {
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #d2d2d6;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #636366;
+        }
+        .footer-links .credit {
+            margin-bottom: 0.3rem;
+        }
+        .footer-links a {
+            font-weight: 400;
+            color: #636366;
+            border: none;
+        }
+        .footer-links a:hover {
+            color: #b8863e;
+            border-bottom: 1px solid #c2975a;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 3rem 1.5rem 3rem;
+            }
+            .container {
+                padding: 1.8rem 1rem 2.5rem;
+            }
+            .features {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .explain-section,
+            .faq-summary {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero 区 -->
+    <header class="hero">
+        <h1>日常查询·对照·延伸</h1>
+        <p>关于世界杯，不止于赛事——记录、列表、历史脉络与参考资料，在安静浏览中慢慢沉淀。</p>
+    </header>
+
+    <main class="container">
+
+        <!-- 优势区：三个卡片 -->
+        <section class="features">
+            <div class="feature-card">
+                <h3>即时对照</h3>
+                <p>从历届冠军、赛制演变到球星数据，结构清晰的列表方便随时查阅，无需反复跳转。</p>
+            </div>
+            <div class="feature-card">
+                <h3>延伸线索</h3>
+                <p>每一条记录背后都关联着文化、地理与战术变迁，提供适度的背景链接，让阅读自然延伸。</p>
+            </div>
+            <div class="feature-card">
+                <h3>安静翻阅</h3>
+                <p>没有推送弹窗或信息轰炸，页面本身只是一组静态资料页，适合自己控制节奏。</p>
+            </div>
+        </section>
+
+        <!-- 说明区 / 叙述角度 -->
+        <section class="explain-section">
+            <h2>浏览的另一种可能</h2>
+            <p>
+                很多人习惯在比赛间歇打开手机，快速搜索某支球队的过往战绩，或者某一年的小组赛分组情况。
+                但零散的搜索结果往往混杂着大量时效性新闻和视频，想要一份干净的、可直接对比的列表并不容易。
+            </p>
+            <p>
+                这个页面所依托的站点，把世界杯相关的常见条目——从历届决赛结果、金靴得主到主办国信息——整理成相对稳定的参考页。
+                日常使用时，可以把它当作一个随身索引，遇到疑问就翻一翻，看到感兴趣的名词再顺着链接往下读。
+                因为没有广告或实时比分刷新，阅读体验更接近翻看一本旧手册。
+            </p>
+            <p>
+                比如你想回顾 1998 年之后金球奖得主的分布，或者对比南美与欧洲球队的夺冠次数，
+                直接打开 <a href="https://init-main-sjb.com">世界杯</a> 相关列表页面，几秒钟就能找到条目。
+                对于喜欢自己琢磨数据、梳理时间线的读者来说，这种轻量级参考方式反而比大型门户更顺手。
+            </p>
+        </section>
+
+        <!-- FAQ 摘要区（典型问题2～3则） -->
+        <section class="faq-summary">
+            <h2>常见疑问 · 摘要</h2>
+            <div class="faq-item">
+                <span class="faq-question">哪里可以查到历届世界杯决赛场地和观众人数？</span>
+                <p class="faq-answer">在站内「历届决赛」页面中按年份列出了球场名称、容量与上座数，并附有简单注释，方便横向比较。</p>
+            </div>
+            <div class="faq-item">
+                <span class="faq-question">有没有不包含球员转会传闻的历史资料？</span>
+                <p class="faq-answer">站内多数条目专注于赛事本身的数据与事实，不追踪场外动态，适合只想了解历史脉络的读者。</p>
+            </div>
+            <div class="faq-item">
+                <span class="faq-question">页面会频繁更新吗？</span>
+                <p class="faq-answer">基础数据不会每天变动，但遇到赛制调整或官方统计数据修正时会相应修订，保持基本准确即可。</p>
+            </div>
+        </section>
+
+        <!-- 底部链接区 -->
+        <footer class="footer-links">
+            <span class="credit">内容索引 · 日常参考</span>
+            <span>
+                <a href="https://init-main-sjb.com">世界杯</a> · 
+                <a href="#" style="pointer-events: none; opacity: 0.6;">历届冠军</a> · 
+                <a href="#" style="pointer-events: none; opacity: 0.6;">纪录列表</a>
+            </span>
+            <span style="font-size:0.8rem; opacity:0.5;">非官方资料站</span>
+        </footer>
+
+    </main>
+
+</body>
+</html>
