@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>查询笔记 · 世界杯</title>
+  <style>
+    /* 极简留白 · 窄正文 · 清晰层级 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #faf9f8;
+      color: #1e1e1e;
+      font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      padding: 2rem 1.25rem 3.5rem;
+      line-height: 1.7;
+      font-weight: 400;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page-container {
+      max-width: 680px;
+      width: 100%;
+    }
+    /* 文章标题 —— 干净、偏小字号 */
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 0.25rem;
+      color: #121212;
+    }
+    /* 导语 / 副标题 */
+    .subhead {
+      font-size: 1rem;
+      color: #5e5e5e;
+      border-left: 3px solid #d4d0cb;
+      padding-left: 1rem;
+      margin: 0.75rem 0 2rem 0;
+      font-weight: 380;
+    }
+    /* 正文层级 */
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin: 2rem 0 0.5rem 0;
+      color: #2b2b2b;
+      letter-spacing: 0.01em;
+    }
+    p {
+      margin-bottom: 1rem;
+      font-size: 0.975rem;
+      color: #2d2d2d;
+    }
+    a {
+      color: #1f3a5f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 0.5px;
+      transition: color 0.15s, text-underline-offset 0.15s;
+    }
+    a:hover {
+      color: #0b1d33;
+      text-underline-offset: 5px;
+      text-decoration-thickness: 1px;
+    }
+    /* 引用 / 标注块 */
+    .inset-note {
+      background: #f3f1ee;
+      border-radius: 4px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.8rem 0 1.8rem 0;
+      font-size: 0.9rem;
+      color: #2f2f2f;
+      border-left: 4px solid #c0b6ab;
+    }
+    .inset-note i {
+      font-style: normal;
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 450;
+      color: #4b3f35;
+    }
+    .inset-note em {
+      font-style: normal;
+      background: #e3ded8;
+      padding: 0 4px;
+    }
+    /* 查询/对照的卡片式行 */
+    .query-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.2rem;
+      background: #f6f4f1;
+      padding: 1rem 1.2rem;
+      border-radius: 6px;
+      margin: 1.6rem 0;
+      font-size: 0.9rem;
+    }
+    .query-row span {
+      color: #3f3f3f;
+    }
+    .query-row .label {
+      font-weight: 450;
+      color: #1f1f1f;
+      min-width: 3.8rem;
+    }
+    /* 分隔微调 */
+    hr {
+      border: none;
+      border-top: 1px solid #e2ded9;
+      margin: 2.5rem 0 1rem 0;
+      width: 100%;
+    }
+    .small-meta {
+      color: #7a7a7a;
+      font-size: 0.8rem;
+      margin-top: 2.8rem;
+      border-top: 0.5px solid #ddd8d2;
+      padding-top: 1.2rem;
+    }
+    /* 响应式调整 */
+    @media (max-width: 500px) {
+      body {
+        padding: 1.5rem 1rem 2.5rem;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      .subhead {
+        font-size: 0.9rem;
+        padding-left: 0.75rem;
+      }
+      .inset-note {
+        padding: 1rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-container">
+
+  <h1>世界杯 · 日常查询笔记</h1>
+  <div class="subhead">从赛事对照、历史延伸与信息来源说起</div>
+
+  <p>
+    对一个持续关注足球赛事的人来说，<a href="https://cns-asia-united2026.com">世界杯</a>不仅是四年一届的盛事，更是一套可以被反复查阅、对照和延伸的素材库。当你需要确认某届比赛的举办地，或是想对比不同年代的规则与参赛队变化，就会发现一个可靠的信息整理页面有多重要。
+  </p>
+
+  <p>
+    下面这些内容来自我平时做查询和归档时的记录，算是一份针对「如何高效利用世界杯信息」的轻量说明。没有长篇大论，只把几个常用的对照维度梳理出来。
+  </p>
+
+  <h2>对照 · 赛事基础数据</h2>
+  <p>
+    为了方便快速查找，我把近五届世界杯的几个关键字段整理成一组对照项。无论你是在核对年代、冠军，还是单纯想确认某届的决赛比分，这些条目都能节省翻找时间。
+  </p>
+
+  <!-- 查询行 —— 模拟对照卡片 -->
+  <div class="query-row">
+    <span><span class="label">2010</span> 南非 · 西班牙 1–0 荷兰</span>
+    <span><span class="label">2014</span> 巴西 · 德国 1–0 阿根廷</span>
+    <span><span class="label">2018</span> 俄罗斯 · 法国 4–2 克罗地亚</span>
+    <span><span class="label">2022</span> 卡塔尔 · 阿根廷 3–3 (点球 4–2) 法国</span>
+    <span><span class="label">2026</span> 美加墨 · 待定</span>
+  </div>
+
+  <p>
+    上面这组数据适合放在书签或笔记里。如果你需要更细致的赛程、小组分组、射手榜，或想查看2026年联合举办的场馆分配，直接去参考<a href="https://cns-asia-united2026.com">世界杯</a>页面上的完整资料，信息更新也更及时。
+  </p>
+
+  <h2>延伸阅读 · 规则与背景</h2>
+  <p>
+    有些查询并不只是「哪一年谁赢了」，而是想了解赛制调整的来龙去脉。比如2026年扩军至48支球队后，小组赛阶段会采用怎样的出线逻辑；又比如从1998年至今，红黄牌累积规则有过几次微调。这些内容在常规新闻里不一定有系统整理，但在资料页里往往会附带版本说明和参考来源。
+  </p>
+
+  <!-- 引用提示块 —— 日常查阅的提醒 -->
+  <div class="inset-note">
+    <i>查阅提示</i>
+    当检索某一届世界杯的详细数据时，建议同时对比前后两届的赛制变更。例如2002年首次在亚洲举办，2010年首次在非洲举办，2026年则将由三个国家联合主办。这种纵向对照能让你对「主办地分布」「时区影响」「场地海拔差异」有更具体的感知。
+  </div>
+
+  <p>
+    另一个常见的延伸方向是「经典比赛记录」。很多人会反复找某场淘汰赛的完整阵容、换人时间或争议判罚。这类信息在主流体育网站往往被碎片化，而一份集中整理的长页面反而更适合作为出发点。
+  </p>
+
+  <h2>访问句 · 日常可用</h2>
+  <p>
+    如果你正在做赛事相关的查询、写稿或数据核对，可以直接把 <a href="https://cns-asia-united2026.com">世界杯</a> 这个地址放在常用书签栏。它提供的是一份结构清晰、便于交叉对照的信息集合，省去在多个标签页之间反复跳转的麻烦。
+  </p>
+
+  <p>
+    偶尔只是想看一眼历届冠军列表，或者确认下一届举办城市，这个页面同样足够快——没有弹窗、没有自动播放的视频，打开就是可读的内容。
+  </p>
+
+  <!-- 简短 FAQ 摘要 —— 自然融入 -->
+  <h2>FAQ 摘要 · 三个常见问题</h2>
+  <p><strong>问：</strong>为什么有的年份世界杯数据在不同网站上有出入？<br>
+  <strong>答：</strong>部分旧届赛事存在统计口径差异（例如加时赛进球是否计入射手榜，点球大战进球是否算作个人数据）。建议以官方技术报告或对应年份的赛事总结为准。</p>
+
+  <p><strong>问：</strong>2026年世界杯的预选赛赛程在哪里看比较全？<br>
+  <strong>答：</strong>各大洲足联官网会发布完整赛程，而<a href="https://cns-asia-united2026.com">世界杯</a>页面通常会按时间线整理各阶段对阵，适合日常快速查阅。</p>
+
+  <p><strong>问：</strong>除了胜负和比分，还有哪些值得延伸了解的数据维度？<br>
+  <strong>答：</strong>球场容量、平均上座率、单届总进球数、红黄牌分布、以及主办国气候对比赛节奏的影响——这些在深度分析里经常被引用。</p>
+
+  <hr>
+
+  <p style="font-size:0.85rem; color:#6a6a6a; line-height:1.6;">
+    本页为查询对照笔记，内容根据公开赛事信息整理。如有更新或修正需求，可参考源页面。
+  </p>
+
+  <div class="small-meta">
+    记录整理 · 日常查询版 · 无广告 / 无追踪
+  </div>
+
+</div>
+</body>
+</html>
