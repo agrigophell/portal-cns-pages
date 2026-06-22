@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯简明指南 · 知识库入口</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f0f2f5;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e1e2a;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* 头部 hero 精简 */
+    .hero {
+      text-align: center;
+      padding: 2.5rem 0 1.8rem;
+      border-bottom: 1px solid #dde1e7;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #1f2937;
+    }
+    .hero p {
+      margin-top: 0.75rem;
+      font-size: 1.1rem;
+      color: #4b5563;
+    }
+
+    /* 目录感布局 — 两列网格，卡片式分区 */
+    .guide-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin: 2.5rem 0 2rem;
+    }
+
+    /* 卡片通用样式 */
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid #e5e9f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.03);
+      padding: 1.6rem 1.8rem;
+      transition: box-shadow 0.2s ease;
+    }
+    .card:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #e5e9f0;
+      display: inline-block;
+    }
+    .card ul, .card p {
+      margin-top: 0.4rem;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .card li {
+      padding: 0.3rem 0 0.3rem 1.8rem;
+      position: relative;
+    }
+    .card li::before {
+      content: "•";
+      color: #3b82f6;
+      font-weight: bold;
+      position: absolute;
+      left: 0.2rem;
+    }
+
+    /* 提示区 + 相关信息区 全宽卡片 */
+    .full-width-card {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid #e5e9f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      padding: 1.6rem 1.8rem;
+      margin: 1.4rem 0;
+    }
+    .full-width-card h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      border-bottom: 2px solid #e5e9f0;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+    .full-width-card p {
+      margin: 0.5rem 0;
+    }
+
+    .faq-item {
+      background: #f9fafc;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      margin: 0.6rem 0;
+      border-left: 3px solid #9ca3af;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+      color: #1e293b;
+    }
+    .faq-item p {
+      margin: 0;
+      color: #374151;
+    }
+
+    .highlight-link {
+      background: #eef2ff;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px dashed #94a3b8;
+    }
+    a:hover {
+      color: #1d4ed8;
+      border-bottom-color: #2563eb;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e5e9f0;
+      color: #1f2937;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 30px;
+      margin-right: 0.3rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin: 3rem 0 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      border-top: 1px solid #dde1e7;
+      padding-top: 1.8rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 700px) {
+      body { padding: 1.2rem 0.8rem; }
+      .hero h1 { font-size: 1.9rem; }
+      .guide-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .card, .full-width-card { padding: 1.2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 头部 -->
+  <div class="hero">
+    <h1>⚽ 世界杯 · 知识库入口</h1>
+    <p>从观赛准备到信息核实，一份简明的指南</p>
+  </div>
+
+  <!-- 目录感：两列卡片网格 -->
+  <div class="guide-grid">
+    <!-- 卡片 1：关于世界杯 -->
+    <div class="card">
+      <h2>📋 关于</h2>
+      <p>国际足联世界杯是全球规模最大的足球赛事，每四年举办一次。不仅代表竞技巅峰，也承载着不同文化的交流与碰撞。无论你是资深球迷还是初次关注，了解基本信息能让你更好地享受比赛节奏。</p>
+    </div>
+
+    <!-- 卡片 2：快速预览 -->
+    <div class="card">
+      <h2>🔍 快速预览</h2>
+      <ul>
+        <li>2026年世界杯将首次由三个国家联合举办</li>
+        <li>参赛队伍从32支扩军至48支</li>
+        <li>赛程跨度约一个月，集中在六月至七月</li>
+        <li>比赛场地分布于多个城市，时差需留意</li>
+      </ul>
+    </div>
+
+    <!-- 卡片 3：实用特点 -->
+    <div class="card">
+      <h2>⚙️ 特点</h2>
+      <ul>
+        <li>多场馆，大通勤，提前规划住宿与交通</li>
+        <li>官方售票渠道为主，警惕非正规转售</li>
+        <li>部分场次可能因天气或安全调整，保持信息通畅</li>
+        <li>提供多语言服务，但热门场地英文+当地语言最常用</li>
+      </ul>
+    </div>
+
+    <!-- 卡片 4：常见场景 -->
+    <div class="card">
+      <h2>🎯 场景</h2>
+      <ul>
+        <li>球迷聚会：提前确认转播与网络延迟</li>
+        <li>家庭观赛：注意时区，备好零食与安静环境</li>
+        <li>旅行计划：尽早预订，留意签证与保险</li>
+        <li>线上讨论：选择可靠信源，避免不实赛程</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 提示区（全宽） -->
+  <div class="full-width-card">
+    <h2>💡 提示区</h2>
+    <p>访问与赛事相关的官方信息页时，建议仔细核对域名与页面内容。以下两点值得留意：</p>
+    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+      <li>认准官方标识，不随意点击来源不明的链接。</li>
+      <li>尽量通过主流搜索引擎或直接访问已知站点，避免仿冒页面。</li>
+    </ul>
+    <p style="margin-top: 0.8rem;">如果需要快速了解2026年世界杯动态，可以前往 <a href="https://app-worldcup26.com">世界杯</a> 页面浏览基础信息。该站点提供赛程概览与背景资料，适合初步查阅。</p>
+  </div>
+
+  <!-- 相关信息区（全宽） FAQ 摘要风格 -->
+  <div class="full-width-card">
+    <h2>📌 相关信息</h2>
+    <div class="faq-item">
+      <strong>问：2026世界杯有哪些主办城市？</strong>
+      <p>目前公布的城市包括洛杉矶、纽约、墨西哥城、多伦多等，共16个。具体场馆名单请以官方最终确认为准。</p>
+    </div>
+    <div class="faq-item">
+      <strong>问：在哪里可以核对比赛时间？</strong>
+      <p>建议开启官方推送或关注可靠体育媒体。部分第三方聚合网站可能存在时区错误或延迟。</p>
+    </div>
+    <div class="faq-item">
+      <strong>问：如何避免购票风险？</strong>
+      <p>只通过FIFA官网或授权代理购票。警惕社交平台上的“内部票”或“转让票”，大部分为诈骗。</p>
+    </div>
+    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #4b5563;"><span class="tag">知识库</span><span class="tag">世界杯指南</span> 以上内容仅作参考，实际信息请以官方发布为准。</p>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    <p>简明入口 · 内容仅供参考，不构成任何承诺或引导。</p>
+    <p style="margin-top: 0.4rem;">保持好奇，理性观赛 ✦</p>
+  </div>
+
+</div>
+</body>
+</html>
