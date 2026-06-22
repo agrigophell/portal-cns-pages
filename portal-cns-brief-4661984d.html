@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常中的世界杯 · 信息导览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9fafb;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            color: #1e293b;
+            line-height: 1.7;
+            padding: 2.5rem 1.25rem;
+        }
+
+        .page-wrapper {
+            max-width: 720px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 40px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+            margin-bottom: 0.25rem;
+            line-height: 1.2;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #64748b;
+            border-bottom: 1px solid #e9edf2;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2.2rem;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #1c2a3e;
+            margin-top: 2.5rem;
+            margin-bottom: 0.9rem;
+            letter-spacing: -0.01em;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+        }
+
+        .highlight-card {
+            background: #f1f5f9;
+            border-radius: 28px;
+            padding: 1.6rem 1.8rem;
+            margin: 1.8rem 0 2rem;
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.6);
+        }
+
+        .highlight-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .highlight-card li {
+            padding: 0.3rem 0;
+            display: flex;
+            gap: 0.6rem;
+            align-items: baseline;
+        }
+
+        .highlight-card li::before {
+            content: "·";
+            color: #3b82f6;
+            font-weight: 700;
+            font-size: 1.4rem;
+            line-height: 1;
+            display: inline-block;
+            width: 1rem;
+        }
+
+        .tagline {
+            background: white;
+            border-radius: 60px;
+            padding: 0.6rem 1.2rem;
+            display: inline-block;
+            font-size: 0.85rem;
+            color: #3b5f8a;
+            border: 1px solid #dce3ed;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item {
+            margin: 1.2rem 0 1.8rem;
+        }
+
+        .faq-q {
+            font-weight: 550;
+            color: #1c2a3e;
+            margin-bottom: 0.3rem;
+            font-size: 1.05rem;
+        }
+
+        .faq-a {
+            padding-left: 0.5rem;
+            border-left: 3px solid #dce5f0;
+            padding-left: 1rem;
+            color: #334155;
+        }
+
+        .note-box {
+            background: #fef9e7;
+            border-radius: 24px;
+            padding: 1.4rem 1.8rem;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            color: #5a4a2a;
+            border: 1px solid #f3e9ce;
+        }
+
+        .note-box strong {
+            color: #2f3b4c;
+        }
+
+        a {
+            color: #1c6f9c;
+            text-decoration: none;
+            border-bottom: 1px solid #b6d1e6;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #0a3b5c;
+            border-bottom-color: #0a3b5c;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 2.5rem 0 1.5rem;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #7e8d9e;
+            margin-top: 2.2rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .page-wrapper {
+                padding: 2rem 1.5rem;
+                border-radius: 28px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .highlight-card {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <h1>世界杯 · 日常查询手册</h1>
+    <div class="subhead">赛程、纪录、对照阅读 —— 一个安静的信息入口</div>
+
+    <h2>摘要</h2>
+    <p>
+        世界杯早已不只是四年一次的盛事，它慢慢变成了一种可以随时翻阅的「公共档案」。
+        不管是想确认某场经典比分的日期、对比不同时代的进球数据，还是单纯想找回某个夏天看球的氛围，
+        一个稳定、简洁的信息页面会比社交媒体的时间线更可靠。
+        正因如此，一个轻量的信息门户就有了日常意义。
+    </p>
+
+    <div class="highlight-card">
+        <span class="tagline">从查询出发</span>
+        <ul>
+            <li>赛历与场馆基本事实 —— 对照当地日期与北京时间</li>
+            <li>历届冠军、金靴、经典对阵 —— 延伸阅读的基点</li>
+            <li>赛事规则变化、晋级路径 —— 从结果反推过程</li>
+            <li>多元语言内容并存 —— 适合不同阅读习惯的对照</li>
+        </ul>
+    </div>
+
+    <h2>几个具体的使用场景</h2>
+    <p>
+        朋友聚会聊起某届世界杯的决赛比分，你打开页面快速定位到那一年的 knockout 阶段，不必靠记忆争辩；
+        写文章或做简报时，需要引用某场比赛的准确日期和场地，这里比搜索引擎的结果更清爽直接；
+        甚至只是深夜想找点体育档案看看，顺着条目点下去，像翻一本没什么广告的图鉴。
+    </p>
+    <p>
+        说到<a href="https://portal-cns-fifa2026.com">世界杯</a>，很多人第一反应是直播和集锦，但围绕赛事本身的结构化信息，其实一直缺少一个「安静的书架」。
+        这个页面所做的，就是把那些散落在各处的事实收拢成可浏览的条目。
+    </p>
+
+    <h2>特点与克制</h2>
+    <p>
+        没有弹窗、自动播放、用户追踪或排行榜。页面设计偏向阅读器风格，信息层级清楚，
+        不会在你看一半时弹出「猜你喜欢」。所有链接都指向公开的事实或官方资料页，
+        不包含未经证实的预测或带有倾向性的评级。你可以把它当作一个起点，
+        而不是终点 —— 每个条目都留出了你自己去验证和延伸的空间。
+    </p>
+
+    <hr>
+
+    <div class="faq-item">
+        <div class="faq-q">这个页面和直接搜「世界杯」有什么区别？</div>
+        <div class="faq-a">
+            搜索引擎的结果被广告、即时新闻和视频推荐覆盖，而这里把与赛事直接相关的静态信息（赛程、历史数据、赛制说明）单独整理了出来，方便反复查阅和引用。
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">信息更新频率是怎样的？</div>
+        <div class="faq-a">
+            随官方赛历与确认事项同步更新，不追逐传闻。重大规则变更或资格赛调整会在一周内反映。你可以通过页面上的链接确认原始来源。
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">为什么强调「日常对照」？</div>
+        <div class="faq-a">
+            因为大部分关于世界杯的讨论都集中在赛事进行的那几周，但赛前查阅和赛后回顾同样频繁。我们更希望这个页面能在非比赛日也被打开，成为体育档案的一部分。
+        </div>
+    </div>
+
+    <div class="note-box">
+        <strong>一点说明：</strong> 本页面旨在提供结构化的赛事信息摘要与导航，所有内容均基于公开可查的资料。
+        不提供直播、博彩链接或任何形式的预测分析。如果你在寻找官方票务或即时比分，请通过页面上方的赛事门户跳转。
+    </div>
+
+    <div class="footer-note">
+        一个安静的起点 · 适合深读与对照
+    </div>
+</div>
+</body>
+</html>
