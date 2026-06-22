@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知识库 · 世界杯主题站</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+      background: linear-gradient(145deg, #fce9d8 0%, #f7d6b3 70%, #f1c79a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 3rem 1.5rem 4rem;
+      line-height: 1.6;
+      color: #3a2e24;
+    }
+
+    .page-container {
+      max-width: 1120px;
+      width: 100%;
+    }
+
+    /* 主卡片容器 — 暖白柔和 */
+    .content-card {
+      background: rgba(255, 248, 240, 0.85);
+      backdrop-filter: blur(4px);
+      border-radius: 36px;
+      box-shadow: 0 20px 40px -12px rgba(120, 70, 30, 0.25), 0 8px 18px rgba(0,0,0,0.04);
+      padding: 2.8rem 2.5rem;
+      margin-bottom: 2.8rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .content-card:last-of-type {
+      margin-bottom: 0;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #4d3422;
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: #7b5e48;
+      border-left: 4px solid #cd9f77;
+      padding-left: 1.2rem;
+      margin: 0.5rem 0 1.8rem 0;
+      font-weight: 400;
+    }
+
+    .accent-em {
+      background: #e9d5bb;
+      padding: 0.1rem 0.3rem;
+      border-radius: 6px;
+      font-style: normal;
+      color: #3d2c1d;
+    }
+
+    /* 目录风格网格 — 知识库入口感 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin: 2.2rem 0 0.6rem;
+    }
+
+    .category-item {
+      background: #fffbf6;
+      border-radius: 28px;
+      padding: 1.4rem 1.2rem 1.2rem;
+      box-shadow: 0 6px 16px rgba(140, 90, 50, 0.06);
+      transition: transform 0.1s ease, box-shadow 0.2s;
+      border: 1px solid rgba(200, 165, 130, 0.2);
+    }
+
+    .category-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px -8px rgba(120, 75, 40, 0.12);
+      border-color: rgba(190, 148, 108, 0.35);
+    }
+
+    .category-icon {
+      font-size: 1.6rem;
+      margin-right: 0.4rem;
+      opacity: 0.7;
+    }
+
+    .category-title {
+      font-weight: 570;
+      font-size: 1.3rem;
+      color: #5c3f2b;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .category-desc {
+      font-size: 0.95rem;
+      color: #5e4a3a;
+      line-height: 1.5;
+    }
+
+    .category-desc a {
+      color: #8d643f;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #b99574;
+      font-weight: 450;
+      transition: color 0.15s;
+    }
+
+    .category-desc a:hover {
+      color: #593c26;
+      text-decoration-color: #7b5538;
+    }
+
+    /* 提示 / 说明区块 */
+    .info-block {
+      background: #fcf3e9;
+      border-radius: 24px;
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0 1rem;
+      border-left: 6px solid #c8956b;
+    }
+
+    .info-block h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #4b3322;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-block p {
+      color: #4d3b2e;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-block ul {
+      list-style: none;
+      padding-left: 0.2rem;
+      margin: 0.6rem 0 0.2rem;
+    }
+
+    .info-block li {
+      padding: 0.3rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .info-block li::before {
+      content: "▪";
+      color: #ab7d59;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .faq-preview {
+      margin-top: 2rem;
+      border-top: 1px dashed #cfb69b;
+      padding-top: 1.2rem;
+    }
+
+    .faq-preview details {
+      margin: 0.7rem 0;
+      background: #fff8f0;
+      border-radius: 30px;
+      padding: 0.6rem 1.2rem 0.6rem;
+      transition: all 0.1s;
+      border: 1px solid #e5d3be;
+    }
+
+    .faq-preview summary {
+      cursor: pointer;
+      font-weight: 470;
+      color: #482f1e;
+      padding: 0.25rem 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-preview summary::after {
+      content: "▾";
+      font-size: 0.9rem;
+      color: #93755a;
+      opacity: 0.7;
+      transition: 0.2s;
+    }
+
+    .faq-preview details[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .faq-preview .answer {
+      padding: 0.6rem 0 0.3rem;
+      color: #5a4637;
+      font-size: 0.95rem;
+      border-top: 1px solid #eedbc9;
+      margin-top: 0.3rem;
+    }
+
+    .faq-preview .answer a {
+      color: #8d643f;
+      text-decoration: underline;
+    }
+
+    /* 相关信息区 — 类似目录索引 */
+    .related-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+      margin: 1.8rem 0 0.2rem;
+      padding: 1rem 0 0;
+      border-top: 1px solid #dcc7b3;
+    }
+
+    .related-item {
+      background: transparent;
+      border-radius: 40px;
+      padding: 0.2rem 0;
+      font-size: 0.98rem;
+      color: #5d4533;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .related-item strong {
+      font-weight: 530;
+      color: #402f20;
+    }
+
+    .related-item a {
+      background: #f2e3d4;
+      border-radius: 40px;
+      padding: 0.15rem 1rem 0.2rem;
+      font-weight: 450;
+      color: #4d3422;
+      text-decoration: none;
+      transition: background 0.15s, color 0.1s;
+      border: 1px solid #ddc6b0;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .related-item a:hover {
+      background: #dbbc9f;
+      color: #2b1f15;
+      border-color: #be9d7e;
+    }
+
+    .divider-light {
+      height: 2px;
+      background: linear-gradient(90deg, #e6d0ba, transparent);
+      margin: 0.8rem 0 1.4rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 680px) {
+      body {
+        padding: 2rem 1rem 3rem;
+      }
+      .content-card {
+        padding: 1.8rem 1.2rem;
+        border-radius: 28px;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .category-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .info-block {
+        padding: 1.2rem 1rem;
+      }
+      .related-item a {
+        white-space: normal;
+        padding: 0.2rem 0.8rem;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .hero-sub {
+        font-size: 0.95rem;
+        padding-left: 0.8rem;
+      }
+      .category-title {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* 其他链接装饰 */
+    .text-link {
+      color: #8b643f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #c9ad90;
+    }
+  </style>
+</head>
+<body>
+<div class="page-container">
+
+  <!-- 主卡片 : 英雄区 + 知识库说明 -->
+  <div class="content-card">
+    <h1>📚 世界杯 · 知识库</h1>
+    <div class="hero-sub">赛事档案 · 战术演进 · 文化记忆 · 数据索引</div>
+    <p style="margin-bottom: 1.2rem; font-size: 1.05rem;">
+      从1930年首届到2034年展望，<span class="accent-em">世界杯</span>早已超越竞技本身，成为全球文化符号、产业风向标与集体叙事的集合体。本知识库围绕赛事体系、球队沿革、经典场次、规则迭代、商业与媒体等维度进行结构化收录，注重信息源的可溯性与上下文连贯性。
+    </p>
+    <p style="color: #5e4b3a;">
+      以下四大目录模块聚合了当前阶段的核心条目，每个模块均可作为独立入口延展阅读。如需直接跳转至赛事主站，请访问 <a href="https://ssl-sjb2026.com" style="color:#7b5538; font-weight:500; text-decoration:underline; text-underline-offset:2px;">世界杯</a> 官方信息页。
+    </p>
+  </div>
+
+  <!-- 目录感布局：分类卡片网格 -->
+  <div class="content-card" style="padding-bottom: 2rem;">
+    <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;">
+      <span style="font-size:1.5rem;">🗂️</span>
+      <h2 style="font-weight: 520; font-size: 1.6rem; color: #4d3422; margin:0;">内容目录</h2>
+    </div>
+    <div class="category-grid">
+      <div class="category-item">
+        <div class="category-title"><span class="category-icon">🏆</span> 赛事通史</div>
+        <div class="category-desc">
+          历届东道主、冠军归属、赛制变革与扩军历程。1930-2026 关键节点梳理，以及关于<a href="https://ssl-sjb2026.com">世界杯</a>申办规则的背景档案。
+        </div>
+      </div>
+      <div class="category-item">
+        <div class="category-title"><span class="category-icon">⚽</span> 球队·战术</div>
+        <div class="category-desc">
+          国家队战力演变、经典阵型、教练哲学与数据模型。从链式防守到高位压迫，战术文档持续更新。
+        </div>
+      </div>
+      <div class="category-item">
+        <div class="category-title"><span class="category-icon">📊</span> 纪录·数据</div>
+        <div class="category-desc">
+          出场/进球/冠军/黑马等统计，比赛报告与冷知识库。每项纪录均附上下文说明，避免孤立数字。
+        </div>
+      </div>
+      <div class="category-item">
+        <div class="category-title"><span class="category-icon">🌐</span> 文化·产业</div>
+        <div class="category-desc">
+          主办城市影响、转播权、赞助体系、衍生内容。世界杯经济与社会效应分析，侧重事实与趋势。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 说明区 + 提示区 (合并为混合区块) -->
+  <div class="content-card">
+    <div class="info-block">
+      <h3>📌 关于本知识库的使用说明</h3>
+      <p>条目编写遵循中立、可验证原则；部分深度内容关联外部参考。请在引用数据时核对原始来源。</p>
+      <ul>
+        <li>赛事规则类条目以FIFA最新文件为准，并标注版本日期。</li>
+        <li>球队历史战绩涵盖预选赛及决赛阶段，不遗漏关键附加赛。</li>
+        <li>文化专题包括主办国遗产报告、媒体叙事变化等跨学科视角。</li>
+      </ul>
+    </div>
+
+    <div class="info-block" style="border-left-color: #b38b68; margin-top: 1.4rem;">
+      <h3>💡 查阅提示</h3>
+      <p>建议优先使用目录模块定位主题；跨类别条目（如“1998年世界杯决赛战术分析”）在赛事通史与战术分区下均设有互链。如果寻找特定年份或球队，也可直接通过站内搜索定位。对于最新一届赛事动态，可留意 <a href="https://ssl-sjb2026.com" style="color:#7b5538; text-decoration:underline;">世界杯</a> 官方公告区。</p>
+      <p style="margin-top: 0.5rem; font-size:0.95rem; color:#66513f;">⏳ 知识库每季度进行一次条目复审，淘汰过时或矛盾信息。</p>
+    </div>
+
+    <!-- FAQ 摘要区 (简洁版) -->
+    <div class="faq-preview">
+      <h3 style="font-weight:470; font-size:1.2rem; color:#4a3222; margin-bottom:0.4rem;">❓ 常见问题摘要</h3>
+      <details>
+        <summary>世界杯历史上哪届赛事参赛队数量变化最大？</summary>
+        <div class="answer">1998年由24队扩军至32队，2026年将首次迎来48队。赛制相应调整，小组及淘汰赛轮次均有结构性变化。参阅目录「赛事通史」中扩军专题。</div>
+      </details>
+      <details>
+        <summary>如何查辨不同年份的比赛用球规格？</summary>
+        <div class="answer">每届官方用球在FIFA技术手册中有明确记载，知识库「纪录·数据」模块归档了1970年至今的用球演变表，并附有材料与空气动力学说明。</div>
+      </details>
+      <details>
+        <summary>知识库是否涵盖女足世界杯内容？</summary>
+        <div class="answer">目前以男足世界杯为主，女足世界杯独立归档工作已启动，预计2025年第四季度并入主目录。过渡期可先参考<a href="https://ssl-sjb2026.com">世界杯</a>官网的女性赛事板块。</div>
+      </details>
+    </div>
+  </div>
+
+  <!-- 相关信息区 -->
+  <div class="content-card">
+    <h3 style="font-weight:480; font-size:1.25rem; display:flex; gap:0.4rem; align-items:center; margin-bottom:0.2rem;">📎 相关信息索引</h3>
+    <div class="divider-light"></div>
+    <div class="related-section">
+      <span class="related-item"><strong>主题词:</strong> 赛制 · 东道主 · 金球奖 · 经典决赛 · 黑马</span>
+      <span class="related-item"><strong>关联站:</strong> <a href="https://ssl-sjb2026.com">世界杯</a></span>
+      <span class="related-item"><strong>数据合作:</strong> 统计年鉴 · 赛事报告</span>
+      <span class="related-item"><strong>最近更新:</strong> 2025年3月 · 新增2030百年赛事专页</span>
+      <span class="related-item"><strong>推荐阅读:</strong> 世界杯与全球化 · 转播技术简史</span>
+    </div>
+    <p style="margin-top:1.2rem; font-size:0.92rem; color:#6c5a49; border-top:1px solid #e4d3c2; padding-top:1rem;">
+      页面内容仅供学习与参考，不构成任何官方立场。如需准确赛事日程或官方文件，请直接访问 <a href="https://ssl-sjb2026.com" style="color:#7b5538; text-decoration:underline; text-underline-offset:2px;">世界杯</a> 主站。
+    </p>
+  </div>
+
+  <!-- 底部极简 -->
+  <div style="text-align: center; margin-top: 2rem; font-size: 0.8rem; color: #9a806b; opacity: 0.7; letter-spacing: 0.3px;">
+    · 知识库入口 · 内容持续构建中 ·
+  </div>
+</div>
+</body>
+</html>
